@@ -11,6 +11,10 @@
 
 [US Regional Economy](https://cnordenlow.shinyapps.io/us_regional_data/)
 
+##### This page combines sports, analytics and R.
+
+[SportsAnalytics](https://cnordenlow.github.io/SportsAnalytics/)
+
 ##### This app aims to show the spread of Corona in selected countries.
 
 [Corona_development](https://cnordenlow.shinyapps.io/Corona_development_2020/)
