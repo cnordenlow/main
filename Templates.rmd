@@ -833,6 +833,64 @@ End Sub
   ```  
 
 
+**Import file with conditions**
+  
+*Import files after a certain date. Check if file exists before import.*
+
+   
+
+```  
+Sub import_file()
+
+Application.ScreenUpdating = False
+Application.DisplayAlerts = False
+
+Sheets("location_file").ClearContents
+
+#Input files after this date
+from_date = "2020-05-01"
+
+current_date = from_date
+
+
+  TheHomeFile = ActiveWorkbook.Name
+
+    Path = "xxx\home\chnord\My Documents\test\"
+
+
+Do Until Format(current_date, "YYYY-MM-DD") >= Format(to_date, "YYYY-MM-DD")
+
+Name = current_date & " Saldo.csv"
+
+''check if file exists
+file_exists = False
+If Dir(Path & Name) <> "" Then file_exists = True
+
+If file_exists = True Then
+
+        Workbooks.OpenText Filename:= _
+          Path & Name, Local:=True
+
+        Range("a1:z10000").Copy
+      Workbooks(TheHomeFile).Activate
+      Sheets("likvprog_history").Select
+      Range("a1").PasteSpecial xlValues
+
+  Workbooks(Name).Close savechanges:=False
+
+end if
+
+current_date = DateAdd("d", 1, current_date)
+Loop
+
+
+
+
+Application.CutCopyMode = False
+
+End Sub
+  ```  
+
 
 
 
