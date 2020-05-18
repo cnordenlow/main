@@ -949,7 +949,7 @@ For c = 2 To 4
     Next
 Next
 End Sub
-  ```  
+```  
   
   
   
@@ -958,5 +958,16 @@ Misc {data-navmenu="VBA"}
 
 #### Misc
 
- 
+ **Format from text to number**
+  
+*Format from text to number when excel "requires" a press of enter button.*
+
+``` 
+or Each r In Sheets("Sheet1").UsedRange.SpecialCells(xlCellTypeConstants)
+    If IsNumeric(r) Then
+       r.Value = CSng(r.Value)
+       r.NumberFormat = "0.00"
+    End If
+Next
+```
   
