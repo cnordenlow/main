@@ -5,7 +5,7 @@
 
 ##### The aim for this page is create different templates and settings to be able to code, break down and analyse data in different ways.
 
-[Templates](https://cnordenlow.github.io/main/Templates)
+[Templates](https://cnordenlow.github.io/main/Templates.html)
 
 ##### This app aims to give a deeper knowledge of US Regional Economy.
 
