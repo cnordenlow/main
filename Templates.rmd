@@ -484,7 +484,20 @@ rnorm(4, mean=50, sd=10)
 # To check that the distribution looks right, make a histogram of the numbers
 x <- rnorm(400, mean=50, sd=10)
 hist(x)
-  ``` 
+ ``` 
+  
+ **Create table**
+  
+*Create a table with combination fixed and random number * 
+ ```{r, echo=T, eval=F}
+ 
+ library(tidyverse)
+ 
+ df <- tibble(
+  value = seq(10,90,1),
+  rand = seq(10,90,1) +runif(81, min=-10, max=15)
+) 
+ ``` 
  
 Visualize {data-navmenu="R"}
 =====================================     
