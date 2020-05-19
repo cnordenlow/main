@@ -448,6 +448,29 @@ df%>%
 ``` 
 
  
+ 
+
+#### Useful functions / expressions
+
+**Gsub**
+  
+*gsub() replaces all matches of a string.*
+
+```{r, echo=T, eval=F}
+x <- "Old City"
+gsub("Old", "New", x)
+
+#case insensitive
+gsub("old", "New", x, ignore.case=T)
+
+#Vector replacement
+y <- c("Stockholm City", "Uppsala City", "Malmö")
+gsub(" City","",y)
+
+ 
+ ``` 
+ 
+ 
 Visualize {data-navmenu="R"}
 =====================================     
    
