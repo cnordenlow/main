@@ -470,12 +470,25 @@ gsub(" City","",y)
  
  ``` 
  
+ **rnorm**
+  
+*Generate number from a normal distribution.*
+```{r, echo=T, eval=F}
+ rnorm(4)
+#> [1] -2.3308287 -0.9073857 -0.7638332 -0.2193786
+
+# Use a different mean and standard deviation
+rnorm(4, mean=50, sd=10)
+#> [1] 59.20927 40.12440 44.58840 41.97056
+
+# To check that the distribution looks right, make a histogram of the numbers
+x <- rnorm(400, mean=50, sd=10)
+hist(x)
+  ``` 
  
 Visualize {data-navmenu="R"}
 =====================================     
-   
-
-
+ 
  
  
 
