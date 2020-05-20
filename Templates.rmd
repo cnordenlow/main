@@ -921,6 +921,22 @@ table_bls2 <-table_bls[[2]]
 ```  
 
 
+#### Scrape title
+
+**Scrape title**
+
+
+```{r, echo=T, eval=F}
+
+library(rvest)
+
+lego_movie <- read_html("http://www.imdb.com/title/tt1490017/")
+lego_movie %>%
+  html_node(xpath='//div[@class="originalTitle"]') %>%
+  html_text() 
+
+```  
+
 
 
 Import {data-navmenu="VBA"}
