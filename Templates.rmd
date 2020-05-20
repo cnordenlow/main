@@ -530,45 +530,6 @@ Misc {data-navmenu="R"}
 =====================================     
    
 
-#### Scrape from Web
-
-**Scrape web page info and save in a table**
-  
-*Scrape all different sub web pages under a base page. In the below example there a number of sub pages under the base bage. R is scraping all different URL under the main page. Info in the tables under the sub pages are saved in a table. You will need to have HTTP_PROXY/HTTPS_PROXY as environment variables.*
-
-   
-
-
-```{r, echo=T, eval=F}
-#https://cran.r-project.org/web/packages/rvest/rvest.pdf
-require(rvest)
-require(xml2)
-require(tidyverse)
-.base_url <- "https://www.riksbank.se"
-doc <- read_html(file.path(.base_url, "sv/penningpolitik/penningpolitiska-instrument/kop-av-foretagscertifikat/special-terms-and-conditions/"))
-urls <- doc %>%
-  html_nodes("a") %>%
-  html_attr("href")
-urls <- urls[str_detect(urls, regex(".*/special-terms-and-conditions/.*bid-date.*$"))]
-urls <- file.path(.base_url, urls)
-names(urls) <- basename(urls)
-doc_subpage <- read_html(urls[[1]])
-df <- urls %>%
-  map_dfr(~{
-    doc_subpage %>%
-      html_node("table") %>%
-      html_table() %>%
-      rename(key=X1, value=X2) %>%
-      as_tibble()
-  }, .id = "url")
-  
-  #It is possible to filter which files should be imported.
-  #map(...) %>% filter(lubridate::year(date) == 2019)
-  
-  
-```  
-
-
 #### Moving average
 **Create a moving average**
   
@@ -853,7 +814,113 @@ Maturity <- "2023-04-30"
   calculate_disc_from_yield(yield, maturity_date, settlement_date, day_count)
 ```   
   
-    
+
+
+
+Web Scraping {data-navmenu="R"}
+=====================================     
+   
+
+#### Scrape all sub page
+
+**Scrape web page info and save in a table**
+  
+*Scrape all different sub web pages under a base page. In the below example there a number of sub pages under the base bage. R is scraping all different URL under the main page. Info in the tables under the sub pages are saved in a table. You will need to have HTTP_PROXY/HTTPS_PROXY as environment variables.*
+
+   
+
+
+```{r, echo=T, eval=F}
+#https://cran.r-project.org/web/packages/rvest/rvest.pdf
+require(rvest)
+require(xml2)
+require(tidyverse)
+.base_url <- "https://www.riksbank.se"
+doc <- read_html(file.path(.base_url, "sv/penningpolitik/penningpolitiska-instrument/kop-av-foretagscertifikat/special-terms-and-conditions/"))
+urls <- doc %>%
+  html_nodes("a") %>%
+  html_attr("href")
+urls <- urls[str_detect(urls, regex(".*/special-terms-and-conditions/.*bid-date.*$"))]
+urls <- file.path(.base_url, urls)
+names(urls) <- basename(urls)
+doc_subpage <- read_html(urls[[1]])
+df <- urls %>%
+  map_dfr(~{
+    doc_subpage %>%
+      html_node("table") %>%
+      html_table() %>%
+      rename(key=X1, value=X2) %>%
+      as_tibble()
+  }, .id = "url")
+  
+  #It is possible to filter which files should be imported.
+  #map(...) %>% filter(lubridate::year(date) == 2019)
+  
+  
+```  
+
+
+
+#### Scrape PL table
+
+**Scrape one table**
+
+
+```{r, echo=T, eval=F}
+
+library(rvest)
+
+web_pl <- read_html("https://www.foxsports.com/soccer/stats?competition=1&season=20190&category=standard&sort=3")
+tbls <- html_nodes(web_pl, "table")
+head(tbls)
+
+
+pl_stats <- web_pl %>%
+  html_nodes("table") %>%
+  # .[3:4] %>%
+  html_table(fill = TRUE)%>%
+  .[[1]]
+  
+```  
+
+
+#### Scrape all tables
+
+**Scrape all tables, use one**
+
+
+```{r, echo=T, eval=F}
+##Web scrape US Data. Payroll
+#http://bradleyboehmke.github.io/2015/12/scraping-html-tables.html
+
+library(rvest)
+
+web_bls <- read_html("http://www.bls.gov/web/empsit/cesbmart.htm")
+
+tbls <- html_nodes(web_bls, "table")  #extract all table nodes that exist on the page.
+
+head(tbls)
+
+
+#To parse the HTML, we use html_table. In this example it creates
+table_bls <- web_bls %>%
+  html_nodes("table") %>%
+  .[3:4] %>% ##determines which tables. In this case, table 3 and 4.
+  html_table(fill = TRUE)
+
+str(table_bls)
+
+#Extract table 2, non-farm
+head(table_bls[[2]], 4)
+
+# remove row 1 that includes part of the headings. Not neccessary here
+#table_bls[[2]] <- table_bls[[2]][-1,]
+
+
+table_bls2 <-table_bls[[2]]
+```  
+
+
 
 
 Import {data-navmenu="VBA"}
@@ -865,7 +932,10 @@ Import {data-navmenu="VBA"}
   
 *Code to delete old data and to import new file*
 
-   
+  
+  
+ 
+  
 
 
 
