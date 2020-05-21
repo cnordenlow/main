@@ -548,6 +548,9 @@ df <- arrange(df, Date)
 df  %>%
   group_by(indicator) %>% 
   mutate(MA_3m = slide_index_dbl(value, Date, mean, .before=lubridate::days(2), .after=0,.complete=T))
+  
+  #Use before or after = Inf if you like to get the calculation based on all values before or after.
+  
 ```
 
 
