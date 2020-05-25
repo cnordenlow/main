@@ -497,7 +497,7 @@ hist(x)
   value = seq(10,90,1),
   rand = seq(10,90,1) +runif(81, min=-10, max=15)
 ) 
- ``` 
+``` 
  
 Visualize {data-navmenu="R"}
 =====================================     
@@ -518,12 +518,13 @@ df <- tibble(
   rand = seq(1,50,1) +runif(50, min=-10, max=15)
 )%>%
   mutate(diff = rand - value)
- ``` 
+
 
 exposure_graph <- ggplot(df, aes(x=value,y=rand)) +
   geom_ribbon(aes(ymin=pmin(df$diff,0), ymax=0), fill="red", col="black", alpha=0.5) +
   geom_ribbon(aes(ymin=0, ymax=pmax(df$diff,0)), fill="blue", col="black", alpha=0.5) +
   geom_line(aes(y=0))
+``` 
 
 
 Misc {data-navmenu="R"}
@@ -1127,4 +1128,3 @@ or Each r In Sheets("Sheet1").UsedRange.SpecialCells(xlCellTypeConstants)
     End If
 Next
 ```
-  
