@@ -943,7 +943,7 @@ lego_movie %>%
 
 
 
-Import {data-navmenu="VBA"}
+Import {data-navmenu="Excel & VBA"}
 =====================================
 
 #### Import excel
@@ -1052,7 +1052,7 @@ End Sub
 
 
 
-Loops {data-navmenu="VBA"}
+Loops {data-navmenu="Excel & VBA"}
 =====================================  
 
 #### For loop
@@ -1111,7 +1111,7 @@ End Sub
   
   
   
-Misc {data-navmenu="VBA"}
+Misc {data-navmenu="Excel & VBA"}
 =====================================  
 
 #### Misc
@@ -1128,3 +1128,19 @@ or Each r In Sheets("Sheet1").UsedRange.SpecialCells(xlCellTypeConstants)
     End If
 Next
 ```
+
+Useful Excel Formulas {data-navmenu="Excel & VBA"}
+=====================================  
+
+
+Useful Bloomberg to Excel Formulas {data-navmenu="Excel & VBA"}
+=====================================  
+#### Bloomberg formulas
+
+ **Import Rating with override function**
+*Approah to import rating for specific date*
+
+``` 
+=BDP("SAND SS equity";"RTG_SP_LT_LC_ISSUER_CREDIT";"RATING_AS_OF_DATE_OVERRIDE="&"2020-01-01")
+```
+
