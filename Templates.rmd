@@ -32,6 +32,9 @@ Create template tables {data-navmenu="R"}
 **Create table with random dates between two dates. Use max date and create a table with dates until this date.**
 
 ```{r, echo=T, eval=F}
+
+#https://www.cyclismo.org/tutorial/R/basicOps.html#basic-operations
+
 library(dplyr)
 
 df <- tibble(
