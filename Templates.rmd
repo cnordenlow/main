@@ -24,8 +24,24 @@ Home
 
 
  
+Create template tables {data-navmenu="R"}
+=====================================  
 
+#### Template tables
 
+**Create table with random dates between two dates. Use max date and create a table with dates until this date.**
+
+```{r, echo=T, eval=F}
+library(dplyr)
+
+df <- tibble(
+  date = sample(seq(as.Date('2020/06/01'), as.Date('2025/01/01'), by="day"), 20)
+)
+
+df2 <-tibble(
+  date = seq.Date(Sys.Date(), max(as.Date(df$date)), by = "day")
+)
+```
 
 Import & Export {data-navmenu="R"}
 =====================================  
