@@ -54,6 +54,10 @@ df <- data.frame(Amount = 1:10)
 df %>%
   rowwise %>%
   mutate(newColumn = sample(1:5, 1))
+  
+  #It´s often neccessary to ungroup rowwise.
+  df <- as.data.frame(df)
+
 ```
 
 
