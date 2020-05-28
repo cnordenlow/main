@@ -46,6 +46,18 @@ df2 <-tibble(
 )
 ```
 
+**Create new column with random number**
+
+```{r, echo=T, eval=F}
+library(tidyverse)
+df <- data.frame(Amount = 1:10)
+df %>%
+  rowwise %>%
+  mutate(newColumn = sample(1:5, 1))
+```
+
+
+
 Import & Export {data-navmenu="R"}
 =====================================  
     
