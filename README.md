@@ -7,9 +7,6 @@
 
 [Tutorials](https://cnordenlow.github.io/tutorials/)
 
-old..
-[Templates](https://cnordenlow.github.io/main/Templates)
-
 ##### This app aims to give a deeper knowledge of US Regional Economy.
 
 [US Regional Economy](https://cnordenlow.shinyapps.io/us_regional_data/)
