@@ -5,7 +5,7 @@
 
 ##### The aim for this bookdown page is create different templates and settings to be able to code, break down and analyse data in different ways.
 
-[Tutorials](https://cnordenlow.github.io/tutorials/)
+[Tutorials](https://cnordenlow.github.io/tutorials/index.html)
 
 ##### This app aims to give a deeper knowledge of US Regional Economy.
 
