@@ -12,7 +12,7 @@
 
 [US Regional Economy](https://cnordenlow.shinyapps.io/us_regional_data/)
 
-<br>
+
 ##### This page combines sports, analytics and R.
 
 [SportsAnalytics](https://cnordenlow.github.io/SportsAnalytics/)
