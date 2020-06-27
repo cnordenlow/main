@@ -19,3 +19,7 @@
 
 [Corona_development](https://cnordenlow.shinyapps.io/Corona_development_2020/)
 
+##### This page is for Svenska Spels Stryk- and Eurotips.
+*This page run two different models - Least Square and Segment Model with the purpose of finding the optimal rows for stryk- and eurotips.*
+
+[Stryk- and Eurotips](https://cnordenlow.github.io/stryktipset/stryk.html)
